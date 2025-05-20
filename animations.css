@@ -23,6 +23,22 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Efecto de zoom en imágenes de proyectos */
+.project-img {
+  overflow: hidden;
+}
+
+.project-img img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.15);
+}
+
 /* Animación para hover en tarjetas de servicio */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -86,15 +102,13 @@
 
 /* Aplicar la animación a los contenedores en lugar de los iconos */
 .service-card:hover .service-icon,
-.team-member:hover .team-icon,
-.project-card:hover .project-img {
+.team-member:hover .team-icon {
   animation: pulse-radar 1.5s infinite;
 }
 
 /* Mantener los iconos estables durante la animación del contenedor */
 .service-card:hover .service-icon i,
-.team-member:hover .team-icon i,
-.project-card:hover .project-img i {
+.team-member:hover .team-icon i {
   animation: none;
 }
 
@@ -115,14 +129,13 @@
 }
 
 /* Colocar el contenedor de iconos en posición relativa para los pseudo-elementos */
-.service-icon, .team-icon, .project-card .project-img {
+.service-icon, .team-icon {
   position: relative;
 }
 
 /* Crear el efecto de onda circular expandiéndose */
 .service-card:hover .service-icon::after,
-.team-member:hover .team-icon::after,
-.project-card:hover .project-img::after {
+.team-member:hover .team-icon::after {
   content: '';
   position: absolute;
   top: 50%;
