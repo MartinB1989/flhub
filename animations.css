@@ -36,6 +36,10 @@
 /* Animación para iconos de servicios */
 .service-icon {
   transition: transform 0.3s ease, color 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-card:hover .service-icon {
@@ -54,20 +58,24 @@
 
 .team-icon {
   transition: transform 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-member:hover .team-icon {
   transform: scale(1.15);
 }
 
-/* Animación de pulso tipo radar para iconos al hacer hover en tarjetas */
+/* Animación de pulso tipo radar para los contenedores de iconos */
 @keyframes pulse-radar {
   0% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.2);
     opacity: 0.7;
   }
   100% {
@@ -76,8 +84,55 @@
   }
 }
 
+/* Aplicar la animación a los contenedores en lugar de los iconos */
+.service-card:hover .service-icon,
+.team-member:hover .team-icon,
+.project-card:hover .project-img {
+  animation: pulse-radar 1.5s infinite;
+}
+
+/* Mantener los iconos estables durante la animación del contenedor */
 .service-card:hover .service-icon i,
 .team-member:hover .team-icon i,
 .project-card:hover .project-img i {
-  animation: pulse-radar 1.5s infinite;
+  animation: none;
+}
+
+/* Efecto de círculo expansivo tipo radar */
+@keyframes radar-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Colocar el contenedor de iconos en posición relativa para los pseudo-elementos */
+.service-icon, .team-icon, .project-card .project-img {
+  position: relative;
+}
+
+/* Crear el efecto de onda circular expandiéndose */
+.service-card:hover .service-icon::after,
+.team-member:hover .team-icon::after,
+.project-card:hover .project-img::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #db4e06;
+  pointer-events: none;
+  animation: radar-wave 1.5s infinite;
+  z-index: -1;
 } 
