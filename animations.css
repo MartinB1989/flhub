@@ -1,0 +1,83 @@
+/* Animaciones para tarjetas - F&L hub */
+
+/* Animación de entrada con fade y escala */
+.fade-in-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Animación para hover en tarjetas de proyecto */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación para hover en tarjetas de servicio */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Animación para iconos de servicios */
+.service-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Animación para miembros del equipo */
+.team-member {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.team-icon {
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .team-icon {
+  transform: scale(1.15);
+}
+
+/* Animación de pulso tipo radar para iconos al hacer hover en tarjetas */
+@keyframes pulse-radar {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.service-card:hover .service-icon i,
+.team-member:hover .team-icon i,
+.project-card:hover .project-img i {
+  animation: pulse-radar 1.5s infinite;
+} 
