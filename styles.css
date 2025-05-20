@@ -359,7 +359,8 @@ nav {
 /* Services Section */
 .services {
     padding: var(--section-padding);
-    background-color: var(--background-alt);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: white;
 }
 
 .services-grid {
@@ -368,26 +369,36 @@ nav {
     gap: 2rem;
 }
 
+.services .section-title {
+    color: white;
+}
+
+.services .section-title::after {
+    background-color: var(--secondary-color);
+}
+
 .service-card {
     text-align: center;
     padding: 2.5rem 1.5rem;
-    background-color: var(--background-color);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .service-card h3 {
     margin-bottom: 1.5rem;
+    color: var(--primary-color);
 }
 
 .service-card p {
     text-align: left;
+    color: var(--text-medium);
 }
 
 .service-icon {
@@ -404,111 +415,120 @@ nav {
 /* Contact Section - Nueva versión sin formulario */
 .contact {
     padding: var(--section-padding);
+    background-color: var(--background-alt);
 }
 
-.contact-info-centered {
-    max-width: 600px;
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
-    text-align: center;
-    background-color: var(--background-color);
-    padding: 3rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.contact-info-centered h3 {
-    margin-bottom: 2rem;
+.contact-card {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.contact-profile {
+    margin-bottom: 1.5rem;
+}
+
+.contact-profile i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.contact-profile h3 {
     font-size: 1.8rem;
     color: var(--primary-color);
+    margin-bottom: 0.5rem;
 }
 
-.contact-info-centered ul {
+.contact-details {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
+    margin-bottom: 2rem;
 }
 
-.contact-info-centered li {
+.contact-details li {
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
 }
 
-.contact-info-centered i {
+.contact-details i {
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    text-align: center;
     background-color: var(--secondary-color);
     color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 1rem;
-    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
-.contact-info-centered a {
+.contact-details a {
     color: var(--text-medium);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.contact-info-centered a:hover {    
+.contact-details a:hover {
     color: var(--primary-color);
+}
+
+.contact-whatsapp .cta-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: var(--whatsapp-color);
+    border: none;
+    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+}
+
+.contact-whatsapp .cta-button:hover {
+    background-color: var(--whatsapp-hover);
+    box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+}
+
+/* Estilos responsive para la sección de contacto */
+@media screen and (max-width: 992px) {
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-card {
+        max-width: 500px;
+    }
 }
 
 /* Botón de WhatsApp en la sección de contacto */
 .contact-whatsapp-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 2.5rem;
-}
-
-.contact-whatsapp-btn .cta-button {    
-    font-size: 1.1rem;    
-    padding: 1rem 2.5rem;
+    display: none;
 }
 
 /* Botón flotante de WhatsApp */
 .whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.whatsapp-float i {
-    margin-top: 0;
-}
-
-/* Responsive para el botón flotante de WhatsApp */
-@media screen and (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 25px;
-    }
+    display: none;
 }
 
 /* Footer */
