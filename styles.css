@@ -436,6 +436,7 @@ nav {
     max-width: 450px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
 }
 
 .contact-card:hover {
@@ -528,7 +529,27 @@ nav {
 
 /* Botón flotante de WhatsApp */
 .whatsapp-float {
-    display: none;
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--whatsapp-hover);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
