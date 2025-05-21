@@ -653,13 +653,18 @@ footer {
         font-size: 14px;
     }
     
+    /* Reducir altura del navbar */
+    nav {
+        padding: 0.5rem 1.5rem;
+    }
+    
     .menu-toggle {
         display: block;
     }
     
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px; /* Reducir para coincidir con el navbar más pequeño */
         left: 0;
         width: 100%;
         background-color: var(--background-color);
@@ -680,7 +685,7 @@ footer {
     }
     
     .hero {
-        padding: 8rem 0 4rem;
+        padding: 7rem 0 4rem;
     }
     
     .hero h1 {
@@ -694,6 +699,11 @@ footer {
     .services-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Reducir tamaño de logo en móvil */
+    .logo img {
+        height: 60px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -701,8 +711,13 @@ footer {
         padding: 0 1.5rem;
     }
     
+    /* Reducir aún más la altura del navbar */
+    nav {
+        padding: 0.4rem 1rem;
+    }
+    
     .hero {
-        padding: 7rem 0 3rem;
+        padding: 6rem 0 3rem;
     }
     
     .hero h1 {
@@ -717,5 +732,10 @@ footer {
     .project-grid,
     .services-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Reducir aún más el logo en dispositivos muy pequeños */
+    .logo img {
+        height: 50px;
     }
 } 
