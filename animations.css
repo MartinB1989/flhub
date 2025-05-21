@@ -28,12 +28,7 @@
   overflow: hidden;
 }
 
-.project-img img {
-  transition: transform 0.5s ease;
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.project-img img {  transition: transform 0.5s ease;  /* Los estilos de tamaño y objeto-fit están ahora en styles.css */}
 
 .project-card:hover .project-img img {
   transform: scale(1.15);
@@ -148,4 +143,14 @@
   pointer-events: none;
   animation: radar-wave 1.5s infinite;
   z-index: -1;
+}
+
+/* Efecto de zoom en imágenes de proyectos */
+.project-img {
+  overflow: hidden;
+}
+
+.project-img img {
+  transition: transform 0.5s ease;
+  /* Los estilos de tamaño y objeto-fit están ahora en styles.css */
 } 
